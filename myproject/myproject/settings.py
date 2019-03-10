@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-from decouple import config
+from decouple import config, Csv
 import dj_database_url
 
 SECRET_KEY = config('SECRET_KEY')
@@ -80,12 +80,12 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
+DATABASES = [{
     'default': dj_database_url.config(
         default=config('DATABASE_URL')
     )
 }
-}
+]
 
 
 # Password validation
